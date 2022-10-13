@@ -16,12 +16,6 @@ RUN apt clean && \
     apt autoremove && \
     rm -rf /var/cache/apk/*
 
-# Install python components
-RUN pip3 install --no-cache-dir numpy \ 
-                               pandas \
-                               scikit-learn \
-                               minio
-
 # Create app dir
 RUN mkdir game
 
@@ -30,4 +24,3 @@ COPY hangman.py /game
 
 # Start hangman
 CMD python3 /game/hangman.py
-#CMD tail -f /dev/null
